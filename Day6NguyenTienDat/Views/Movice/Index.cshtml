@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Day6NguyenTienDat.Models.Movice>
+
+@{
+    ViewData["Title"] = "Danh sách phim";
+}
+
+<h2>Danh sách phim</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Thêm phim
+    </a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>ReleaseDate</th>
+            <th>Genre</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.ReleaseDate.ToString("dd/MM/yyyy")</td>
+                <td>@item.Genre?.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
